@@ -1,0 +1,13 @@
+name,parent,notes
+car wont start,,
+engine turns over,,
+car needs gas,,add gas if needed
+battery voltage meets spec,engine turns over,
+voltage to starter meets spec,,
+starter passes diagnostics,,may need to remove starter to test this
+engine does nothing,car wont start,
+battery is not connected,,will need to reconnect battery if this step fails
+battery is connected,engine does nothing,
+battery voltage meets spec,,
+battery connections are good,,may require professional service
+battery needs charging,engine turns over,

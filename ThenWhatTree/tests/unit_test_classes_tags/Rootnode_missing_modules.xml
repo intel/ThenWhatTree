@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<node name="Rootnode" register="ROOTNODE_REG">
+    <node name="Subnode1">
+        <node name="Subnode11"/>
+        <node name="Subnode12"/>
+        <node name="Subnode13"/>
+    </node>
+    <node name="Subnode_none"/>
+    <node name="Subnode3">
+        <node name="Subnode31" register="SUBNODE31_REG" value="0x1"/>
+        <node name="Subnode32"/>
+    </node>
+</node>

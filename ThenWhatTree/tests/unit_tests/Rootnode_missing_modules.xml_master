@@ -1,0 +1,40 @@
+<ThenWhatTree>
+    <node name="Rootnode">
+        <node_is_true>True</node_is_true>
+        <index>0</index>
+        <output>Rootnode is True</output>
+        <register>ROOTNODE_REG</register>
+        <node name="Subnode1">
+            <node_is_true>True</node_is_true>
+            <output>Subnode1 is True</output>
+            <index>1</index>
+            <node name="Subnode11">
+                <node_is_true>True</node_is_true>
+                <output>Subnode11 is True</output>
+                <index>2</index>
+            </node>
+            <node name="Subnode12">
+                <exception>NotImplementedError</exception>
+                <node_is_true>False</node_is_true>
+            </node>
+            <node name="Subnode13">
+                <exception>ZeroDivisionError('division by zero',)</exception>
+                <traceback>['  File "/nfs/pdx/disks/ccdo.val.work.341/valid/work/vase2p0/ThenWhatTree/source/ThenWhatTree/lib/twt_node/ThenWhatTreeNode.py", line 72, in evaluate_node_is_true\n    node_is_true = self.is_true()\n', '  File "../unit_test_classes_tags/Subnode13.py", line 14, in is_true\n    return 1/0\n']</traceback>
+                <node_is_true>False</node_is_true>
+            </node>
+        </node>
+        <node name="Subnode_none result">
+            <exception>ModuleNotFoundError("No module named 'Subnode_none'",),</exception>
+            <node_is_true>False</node_is_true>
+        </node>
+        <node name="Subnode3">
+            <exception>NotImplementedError</exception>
+            <node_is_true>False</node_is_true>
+            <node name="Subnode31">
+                <register>SUBNODE31_REG</register>
+                <value>0x1</value>
+            </node>
+            <node name="Subnode32"/>
+        </node>
+    </node>
+</ThenWhatTree>

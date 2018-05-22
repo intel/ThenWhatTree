@@ -1,0 +1,6 @@
+parent,name,stuff,stuff1
+,Root,A,B
+Root,Subnode1,1,2
+Subnode1,Subnode11,3,4
+Root,Subnode2,,,
+Subnode2,Subnode21,X,Y

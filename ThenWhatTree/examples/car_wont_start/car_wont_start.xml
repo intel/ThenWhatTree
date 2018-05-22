@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<node>
+    <name>car_wont_start</name>
+    <parent/>
+    <notes/>
+    <node>
+        <name>engine_turns_over</name>
+        <parent/>
+        <notes/>
+        <node>
+            <name>car_needs_gas</name>
+            <parent/>
+            <notes>add gas if needed</notes>
+        </node>
+        <node>
+            <name>battery_voltage_meets_spec</name>
+            <parent>engine_turns_over</parent>
+            <notes/>
+            <node>
+                <name>voltage_to_starter_meets_spec</name>
+                <parent/>
+                <notes/>
+                <node>
+                    <name>starter_passes_diagnostics</name>
+                    <parent/>
+                    <notes>may need to remove starter to test this</notes>
+                </node>
+            </node>
+        </node>
+        <node>
+            <name>battery_needs_charging</name>
+            <parent>engine_turns_over</parent>
+            <notes/>
+        </node>
+    </node>
+    <node>
+        <name>engine_does_nothing</name>
+        <parent>car_wont_start</parent>
+        <notes/>
+        <node>
+            <name>battery_is_not_connected</name>
+            <parent/>
+            <notes>will need to reconnect battery if this step fails</notes>
+        </node>
+        <node>
+            <name>battery_is_connected</name>
+            <parent>engine_does_nothing</parent>
+            <notes/>
+            <node>
+                <name>battery_voltage_meets_spec</name>
+                <parent/>
+                <notes/>
+                <node>
+                    <name>battery_connections_are_good</name>
+                    <parent/>
+                    <notes>may require professional service</notes>
+                </node>
+            </node>
+        </node>
+    </node>
+</node>

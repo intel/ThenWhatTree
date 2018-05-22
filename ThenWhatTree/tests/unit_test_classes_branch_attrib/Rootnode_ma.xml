@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<node name="Rootnode_ma" register="Rootnode_ma_REG">
+    <node name="Subnode1_ma">
+        <node name="Subnode11_ma"/>
+    </node>
+    <node name="Subnode2_ma"/>
+    <node name="Subnode3_ma"/>
+    <node name="Subnode4_ma" register="Subnode4_ma_REG"/>
+</node>
