@@ -25,18 +25,35 @@ ThenWhatTree
 
 Package description
 ----------------------
-The ThenWhatTree package contains utilities for generating and analyzing decision tree collateral.  The top-level utilities are:
+ThenWhatTree is a tool to capture, formalize, communicate and execute expert knowledge of complex, poorly documented work flows.  The package facilitates description of work flows as decision trees and automates execution of the decision trees based on observable data.  
+ThenWhatTree contains utilities for generating and analyzing decision tree collateral that can be run stand alone or incorporated into another script.  The top-level utilities are:
 
-* **generate.py**:  Used to create a decision tree in XML format and a library of python modules for analysis of the tree.  The XML document can be created from a CSV or text file (format requirements below).  The library will contain one eponymous python module for every node in the XML.  The body of each module will be an extension of the ThenWhatTree class.  Any time the CSV file is changed, 'generate' should be run.
-
-   SWITCHES:
-   * --csv \<csv file path>
-   * --lib \<full path to directory that will contain the decision tree node modules and XML>
-
-* **execute_tree.py**:  The tree is evaluated depth-first.  Starting at the root node, function will analyze each node.  If the node evaluates to ‘True’, the children of the node will be analyzed.  After the tree has been evaluated, the function will then extract out the state and any messages that were logged during execution and provide the results to the user.
+* **generate.py**:  Standalone function that creates a library of python modules based on the nodes of an XML decision tree.  The XML document can be created from a CSV or text file (format requirements below).  The library will contain one eponymous python module for every node in the XML.  The body of each module will be an extension of the ThenWhatTree class.  Any time the CSV file is changed, 'generate' should be run.
 
    SWITCHES:
-   * --xml \<path to the xml file in the decision tree node library>
+   * --csv \<csv file path> (required)
+   * --lib \<full path to directory that will contain the decision tree node modules and XML>  (optional)
+
+   OUTPUT:
+   * If only the 'csv' switch is provided, function will generate an XML version of the decision tree
+   * If the 'lib' switch is provided, function will generate a library of python modules corresponding to the elements of the decision tree.
+
+* **execute_tree.py**:  Standalone function that performs depth-first evalation of an XML decision tree.  Starting at the root node, the function will analyze each node by executing the 'is_true' method of the eponymous python module.  If the node returns ‘True’, the children of the node will be analyzed.  If the node returns 'False', the branch is aborted.  After the tree has been evaluated, the function will then extract out the state and any messages that were logged during execution and return a formatted string.  See sample output at the bottom of this README.
+
+   SWITCHES:
+   * --xml \<path to the xml file in the decision tree node library> (required)
+   
+   OUTPUT:  string
+   
+* **evaluate**:  Not standalone; intended for import by other modules.  Module performs depth-first evalation of an XML decision tree.  Starting at the root node, the function will analyze each node by executing the 'is_true' method of the eponymous python module.  If the node returns ‘True’, the children of the node will be analyzed.  If the node returns 'False', the branch is aborted.  The status and output from each node are added as node elements of the XML decision tree.  
+
+   ARGUMENT:  path to the xml file in the decision tree node library  
+   RETURN:  ElementTree object
+
+* **extract**:  Not standalone; intended for import by other modules.  The status and output from each node are extracted and returned as a formatted string.  See sample output at the bottom of this README.
+
+   ARGUMENT: ElementTree object  
+   RETURN:  string
 
 Background and motivation  
 --------------------
