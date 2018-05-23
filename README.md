@@ -26,6 +26,7 @@ ThenWhatTree
 Package description
 ----------------------
 ThenWhatTree is a tool to capture, formalize, communicate and execute expert knowledge of complex, poorly documented work flows.  The package facilitates description of work flows as decision trees and automates execution of the decision trees based on observable data.  
+
 ThenWhatTree contains utilities for generating and analyzing decision tree collateral that can be run stand alone or incorporated into another script.  The top-level utilities are:
 
 * **generate.py**:  Standalone function that creates a library of python modules based on the nodes of an XML decision tree.  The XML document can be created from a CSV or text file (format requirements below).  The library will contain one eponymous python module for every node in the XML.  The body of each module will be an extension of the ThenWhatTree class.  Any time the CSV file is changed, 'generate' should be run.
