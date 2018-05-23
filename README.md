@@ -115,7 +115,7 @@ Below is an example of the body of a ThenWhatTreeNode module named ‘NODE_A’ 
 ARGUMENTS: self  
 RETURN: True, False  
 
-The ‘is_true’ method is the only element of a ThenWhatTree node that requires user input.  The user is required to replace the ‘raise NotImplementedError’ with code that will determine the state of NODE_A and return ‘True’ or ‘False’.
+The ‘is_true’ method is the only element of a ThenWhatTree node that requires user input.  The 'is_true' methods will raise a 'NotImplementedError' by default when the module is generated.  The user is required to replace the ‘raise NotImplementedError’ with code that will determine the state of NODE_A and return ‘True’ or ‘False’.
 ```
     from ThenWhatTree import ThenWhatTreeNode
     class NODE_A(ThenWhatTreeNode):
@@ -123,35 +123,36 @@ The ‘is_true’ method is the only element of a ThenWhatTree node that require
         def is_true(self):
             raise NotImplementedError
 ```
-The following methods may be accessed in the body of the ‘is_true’ method.
+The following property and methods may be accessed in the body of the ‘is_true’ method.
 
 *output*
 ------
 This is a property of the base class and should be assigned with a string and not called.  The ‘output’ property is used to convey anything interesting about the node if it return ‘True’.  If the node returns ‘True’, the string assigned to ‘output’ will be printed in the output of the tree.  If the node returns ‘False’, the string assigned to ‘output’ will be dropped.  If it is not set, the ‘output’ default property is the name of the node appended with "is true".  
 
-USAGE:  self.output = <my_string>
+USAGE:  self.output = \<my_string>
 ```
-    from ThenWhatTree import ThenWhatTreeNode
-    class NODE_A(ThenWhatTreeNode):
+from ThenWhatTree import ThenWhatTreeNode
+class NODE_A(ThenWhatTreeNode):
 
-        def is_true(self):
-            self.output = "Custom string for this node goes here"
-            return True
+    def is_true(self):
+        **Insert user code to evaluate whether NODE_A should return True or False**
+        self.output = "Custom string for this node goes here"
+        return True
 ```
-
 *set_branch_element(\<key>, \<value>)*
 ----------------------------------
-Method provided to pass data from a node to its children.  The 'value' can be any data structure.
+Method provided to pass data from a node to its children.  The \<value> can be any data structure.
 ARGUMENTS: key, value
 RETURN: none
-USAGE: self.set_branch_element(<key>, <value>)
+USAGE: self.set_branch_element(\<key>, \<value>)
 ```
-    from ThenWhatTree import ThenWhatTreeNode
-    class NODE_A(ThenWhatTreeNode):
+from ThenWhatTree import ThenWhatTreeNode
+class NODE_A(ThenWhatTreeNode):
 
-        def is_true(self):
-            self.set_branch_element('my_key', 'my_value')
-            return True
+    def is_true(self):
+        **Insert user code to evaluate whether NODE_A should return True or False**
+        self.set_branch_element('my_key', 'my_value')
+        return True
 ```
 
 *get_branch_element(\<key>)*
@@ -159,14 +160,15 @@ USAGE: self.set_branch_element(<key>, <value>)
 Method provided to get a key-value pair passed from an ancestor node.  
 ARGUMENT: attribute  
 RETURN: value pointed at by key  
-USAGE: self.get_branch_element(<key>)  
+USAGE: self.get_branch_element(\<key>)  
 ```
-    from ThenWhatTree import ThenWhatTreeNode
-    class NODE_A(ThenWhatTreeNode):
+from ThenWhatTree import ThenWhatTreeNode
+class NODE_A(ThenWhatTreeNode):
 
-        def is_true(self):
-            my_value = self.get_branch_element('my_key')
-            return True
+    def is_true(self):
+        my_value = self.get_branch_element('my_key')
+        **Insert user code to evaluate whether NODE_A should return True or False**
+        return True
 ```
 
 *set_element(\<attribute>, \<value>)*
@@ -174,29 +176,31 @@ USAGE: self.get_branch_element(<key>)
 Method provided to set an attribute of the node in the XML.  Attribute must already exist in the XML node or an exception will be raised.  This method will only operate on the node element referenced by 'self'.  
 ARGUMENT: attribute, value  
 RETURN: none  
-USAGE: self.set_element(<attribute>, <value>)  
+USAGE: self.set_element(\<attribute>, \<value>)  
 ```
-    from ThenWhatTree import ThenWhatTreeNode
-    class NODE_A(ThenWhatTreeNode):
+from ThenWhatTree import ThenWhatTreeNode
+class NODE_A(ThenWhatTreeNode):
 
-        def is_true(self):
-            self.set_element('my_xml_attribute', 'my_value')
-            return True
+    def is_true(self):
+        self.set_element('my_xml_attribute', 'my_value')
+        **Insert user code to evaluate whether NODE_A should return True or False**
+        return True
 ```
 
 *get_element(\<attribute>)*
 ------------------------
 Method provided to get attributes of the node from the XML.  Attribute must already exist in the XML node or an exception will be raised.  
 ARGUMENT: attribute  
-RETURN: text of the <attribute> in the XML  
-USAGE: self.get_element(<attribute>)
+RETURN: text of the \<attribute> in the XML  
+USAGE: self.get_element(\<attribute>)
 ```
-    from ThenWhatTree import ThenWhatTreeNode
-    class NODE_A(ThenWhatTreeNode):
+from ThenWhatTree import ThenWhatTreeNode
+class NODE_A(ThenWhatTreeNode):
 
-        def is_true(self):
-            my_value = self.get_element('my_xml_attribute')
-            return True
+    def is_true(self):
+        my_value = self.get_element('my_xml_attribute')
+        **Insert user code to evaluate whether NODE_A should return True or False**
+        return True
 ```
 
 
