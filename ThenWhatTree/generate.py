@@ -114,5 +114,6 @@ def generate_xml(args):
 
 if __name__ == '__main__':
 
+    os.environ['PYTHONDONTSETBYTECODE'] = 'TRUE'
     args = parse_args()
     generate(args)

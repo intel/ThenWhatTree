@@ -6,6 +6,7 @@
 """Module description here"""
 
 # Import built in modules
+import os
 
 # Import 3rd party modules
 
@@ -33,6 +34,7 @@ def extract(tree_element):
     :param tree_element: Root node instance of the tree_object
     :return: string containing annotated tree, node output, exceptions
     """
+    os.environ['PYTHONDONTWRITEBYTECODE'] = 'TRUE'
     output = ""
     tree_annotation = _get_tree_annotation(tree_element)
     if len(tree_annotation) > 0:

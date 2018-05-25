@@ -9,6 +9,7 @@
 # Import built in modules
 import argparse
 import sys
+import os
 
 # Import 3rd party modules
 
@@ -67,5 +68,6 @@ def check_xml_file_type(args):
 if __name__ == '__main__':
 
     args = parse_args()
+    os.environ['PYTHONDONTWRITEBYTECODE'] = 'TRUE'
     tree_object = evaluate(args.xml)
     print(extract(tree_object.getroot()))

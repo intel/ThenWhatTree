@@ -5,8 +5,10 @@
 
 # Import built in modules
 import inspect
+import os
 import sys
 import threading
+import importlib
 
 # noinspection PyPep8Naming
 from xml.etree import ElementTree as ET
@@ -45,6 +47,7 @@ def evaluate(xml_file):
     :param xml_file: xml file consisting of elements with 'node' tag
     :return: ElementTree object
     """
+    os.environ['PYTHONDONTWRITEBYTECODE'] = 'TRUE'
     lib_path = xml_file.rsplit('/', 1)[0]
     _add_node_library_to_path(lib_path)
     _set_NUM_CPUS()
@@ -101,7 +104,7 @@ def _evaluate_tree(tree_element):
     :param tree_element: Element object from the ElementTree package
     :return: None
     """
-    # _evaluate_tree_element(tree_element)
+    
     if get_node_element(tree_element, 'node_is_true') == 'true':
         _add_hint_index_to_tree_element(tree_element)
         subnode_thread_list = []
@@ -361,4 +364,4 @@ def _import_module_for_tree_element(tree_element):
     :return: None
     """
     # FIXME get unit test around this for the case when we try to import something that doesn't exist
-    exec("import {}".format(tree_element.find('name').text))
+    importlib.import_module(tree_element.find('name').text)
