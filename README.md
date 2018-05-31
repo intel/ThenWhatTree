@@ -255,8 +255,8 @@ The following names contain special meaning and are used by methods from ThenWha
 These reserved words should not be used as column headers in a CSV file or as elements in an XML file: *node, branch*
 
 
-Example
-----------
+Example input and output
+------------------------
 The following example includes:
   - Block diagram of a decision tree when your car won't start
   - The CSV representation of the same tree
