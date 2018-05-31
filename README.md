@@ -8,16 +8,9 @@ ThenWhatTree
 [ThenWhatTree methodology](#thenwhattree-methodology)  
 [ThenWhatTree analysis algorithm](#thenwhattree-analysis-algorithm)  
 [ThenWhatTree class](#thenwhattree-class)  
-   * [is_true](#is-true)
-   * [output](#output)
-   * [set_branch_element](#set-branch-element)
-   * get_branch_element
-   * set_element
-   * get_element
-   
 [Getting started](#getting-started)  
-   * CSV schema and requirements
-   * ThenWhatTree reserved name space
+   * [CSV schema and requirements](#csv-schema-and-requirements)
+   * [ThenWhatTree reserved name space](#thenwhattree-reserved-name-space)
    
 [Example input and output](#example-input-and-output)  
    * [Block diagram](#block-diagram)
