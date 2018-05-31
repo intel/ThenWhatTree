@@ -3,8 +3,8 @@ SPDX-License-Identifier: BSD-3-Clause
 
 ThenWhatTree
 ------------
-#[Package description](#package-description)  
-#[Background and motivation](#background-and-motivation)  
+[#Package description](#package-description)  
+[#Background and motivation](#background-and-motivation)  
 #[ThenWhatTree methodology](#thenwhattree-methodology)  
 #[ThenWhatTree analysis algorithm](#thenwhattree-analysis-algorithm)  
 #[ThenWhatTree class](#thenwhattree-class)  
