@@ -5,20 +5,20 @@ ThenWhatTree
 ------------
 ###Table of contents
 [Package description](#package-description)
-2. Background and motivation
-3. ThenWhatTree methodology
-4. ThenWhatTree analysis algorithm
-5. ThenWhatTree class
+[Background and motivation](#background-and-motivation)
+[ThenWhatTree methodology](#thenwhattree-methodology)
+[ThenWhatTree analysis algorithm](#thenwhattree-analysis-algorithm)
+[ThenWhatTree class](#thenwhattree-class)
    * is_true
    * output
    * set_branch_element
    * get_branch_element
    * set_element
    * get_element
-6. Getting started
+[Getting started](#getting-started)
    * CSV schema and requirements
    * ThenWhatTree reserved name space
-7. Example input and output
+[Example input and output](#example-input-and-output)
    * Block diagram
    * CSV file
    * Generated XML
