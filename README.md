@@ -3,23 +3,23 @@ SPDX-License-Identifier: BSD-3-Clause
 
 ThenWhatTree
 ------------
-[#Package description](#package-description)  
-[#Background and motivation](#background-and-motivation)  
-#[ThenWhatTree methodology](#thenwhattree-methodology)  
-#[ThenWhatTree analysis algorithm](#thenwhattree-analysis-algorithm)  
-#[ThenWhatTree class](#thenwhattree-class)  
-   * is_true
-   * output
-   * set_branch_element
+[Package description](#package-description)  
+[Background and motivation](#background-and-motivation)  
+[ThenWhatTree methodology](#thenwhattree-methodology)  
+[ThenWhatTree analysis algorithm](#thenwhattree-analysis-algorithm)  
+[ThenWhatTree class](#thenwhattree-class)  
+   * [is_true](#is-true)
+   * [output](#output)
+   * [set_branch_element](#set-branch-element)
    * get_branch_element
    * set_element
    * get_element
    
-#[Getting started](#getting-started)  
+[Getting started](#getting-started)  
    * CSV schema and requirements
    * ThenWhatTree reserved name space
    
-#[Example input and output](#example-input-and-output)  
+[Example input and output](#example-input-and-output)  
    * [Block diagram](#block-diagram)
    * [CSV file](#csv-file)
    * [Generated XML](#generated-xml)
