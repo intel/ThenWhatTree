@@ -10,7 +10,7 @@ ThenWhatTree
 [ThenWhatTree class](#thenwhattree-class)  
 [Getting started](#getting-started)  
 [CSV schema and requirements](#csv-schema-and-requirements)  
-[ThenWhatTree reserved name space](#thenwhattree-reserved-name-space)
+[ThenWhatTree reserved name space](#thenwhattree-reserved-name-space)  
 [Example input and output](#example-input-and-output)  
    * [Block diagram](#block-diagram)  
    * [CSV file](#csv-file)  
