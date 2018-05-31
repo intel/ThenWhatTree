@@ -228,7 +228,7 @@ Drawing a block diagram is important for the following reasons.
 
 Once the block diagram is created, the recommendation is to translate the diagram into CSV syntax.  Any column names added in the CSV become attribute fields in the XML.  Working with a tree in CSV allows for custom attribute values to be selectively added for each node that can then be accessed by the python node module.  Building decision tree nodes based on elements of a node's XML rather than hard coded values/signals gives a layer of abstraction that creates the opportunity for a macro libraries to be created thus reducing investment costs.
 
-CSV schema and requirements:
+CSV schema and requirements
 ----------------------------
 1) The first line in a CSV file is required to have a 'name' and 'parent' column.
    -name: Entries in the 'name' column in a CSV file will become the module names in the python library created by 'generate.py’.
@@ -297,7 +297,7 @@ Decision tree block diagram that might be created on a whiteboard during a debug
                               |            |          |                 |       |                     |
                               +------------+          +-----------------+       +---------------------+
 ```
-CSV file:
+CSV file
 ---------
 Here is shown the CSV representation of the block diagram shown above.  This content is copied from the ThenWhatTree/examples/car_wont_start/car_wont_start.csv file.
 ```
@@ -315,7 +315,7 @@ battery voltage meets spec,,
 battery connections are good,,may require professional service
 battery needs charging,engine turns over,
 ```
-Generated XML:
+Generated XML
 --------------
 This content is copied from the ThenWhatTree/examples/car_wont_start/car_wont_start.xml file.  Below is the generated XML file created from the above CSV file using 'generate.py --csv <path to csv>'.  If the '-lib <full path to lib>' is also added then a python module is created each <node>.
 ```
