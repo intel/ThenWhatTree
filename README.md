@@ -13,10 +13,12 @@ ThenWhatTree
    * set_branch_element
    * get_branch_element
    * set_element
-   * get_element  
+   * get_element
+   
 [Getting started](#getting-started)  
    * CSV schema and requirements
-   * ThenWhatTree reserved name space  
+   * ThenWhatTree reserved name space
+   
 [Example input and output](#example-input-and-output)  
    * [Block diagram](#block-diagram)
    * [CSV file](#csv-file)
