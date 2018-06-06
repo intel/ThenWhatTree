@@ -3,6 +3,10 @@ SPDX-License-Identifier: BSD-3-Clause
 
 ThenWhatTree
 ------------
+ThenWhatTree and [ATKS](https://github.com/intel/ATKS) were developed to solve a simple problem: debug information was tribal, poorly communicated and globally distributed.  Used in concert the two packages provide an efficient framework to distill the knowledge of debug experts into recipes that can be easily shared and studied for additional insights.  The two packages are standalone but together define a formalism for platform-agnostic, extensible debug scripting and expert knowledge sharing.
+
+ThenWhatTree is a tool to capture, formalize, communicate and execute expert knowledge of work flows.  The package describes work flows as decision trees and automates execution of the decision trees based on observable data.  
+
 [Package description](#package-description)    
 [Background and motivation](#background-and-motivation)  
 [ThenWhatTree methodology](#thenwhattree-methodology)  
@@ -19,8 +23,6 @@ ThenWhatTree
 
 Package description
 ----------------------
-ThenWhatTree is a tool to capture, formalize, communicate and execute expert knowledge of complex, poorly documented work flows.  The package facilitates description of work flows as decision trees and automates execution of the decision trees based on observable data.  
-
 ThenWhatTree contains utilities for generating and analyzing decision tree collateral that can be run stand alone or incorporated into another script.  The top-level utilities are:
 
 * **generate.py**:  Standalone function that creates a library of python modules based on the nodes of an XML decision tree.  The XML document can be created from a CSV or text file (format requirements below).  The library will contain one eponymous python module for every node in the XML.  The body of each module will be an extension of the ThenWhatTree class.  Any time the CSV file is changed, 'generate' should be run.
