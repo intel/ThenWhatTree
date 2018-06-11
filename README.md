@@ -3,9 +3,9 @@ SPDX-License-Identifier: BSD-3-Clause
 
 ThenWhatTree
 ------------
-ThenWhatTree and [ATKS](https://github.com/intel/ATKS) were developed to solve a simple problem: debug information was tribal, poorly communicated and globally distributed.  Used in concert the two packages provide an efficient framework to distill the knowledge of debug experts into recipes that can be easily shared and studied for additional insights.  The two packages are standalone but together define a formalism for platform-agnostic, extensible debug scripting and expert knowledge sharing.
-
 ThenWhatTree is a tool to capture, formalize, communicate and execute expert knowledge of work flows.  The package describes work flows as decision trees and automates execution of the decision trees based on observable data.  
+
+ThenWhatTree and [ATKS](https://github.com/intel/ATKS) were developed to solve a simple problem: debug information was tribal, poorly communicated and globally distributed.  Used in concert the two packages provide an efficient framework to distill the knowledge of debug experts into recipes that can be easily shared and studied for additional insights.  The two packages are standalone but together define a formalism for platform-agnostic, extensible debug scripting and expert knowledge sharing.
 
 [Package description](#package-description)    
 [Background and motivation](#background-and-motivation)  
@@ -64,39 +64,12 @@ ThenWhatTree methodology
 ---------------------------
 ThenWhatTree relies on the insight that debug is an algorithmic activity that can be represented in a decision tree.  There is no magic to debug.  Recognized debug experts have merely collected more algorithms in their heads, know how to judiciously apply those algorithms and where to find the data required to feed those algorithms.  This is hard fought knowledge that is difficult to share, poorly preserved and typically unavailable to others outside the virtual or physical presence of the debug expert.  ThenWhatTree is an expert replication methodology.
 
-Starting a fresh debug session is often a fishing expedition.  Sometimes the output from a failing checker or assertion gives a hint.  For a cycle limit violation or hanging test, we usually are starting from a blank slate.  We look for clues by using a standard set of regular expressions to grep the logs with which we’re familiar.  Or we open an fsdb and check the status of our favorite signals.  At an abstract level, we are trying to detect a nugget of data that we can use to decide which node to traverse to next.  We are mentally populating a node in our decision tree.  Every node of every decision tree can be described like this:
+Starting a fresh debug session is often a fishing expedition.  Sometimes the output from a failing checker or assertion gives a hint.  For a cycle limit violation or hanging test, we usually are starting from a blank slate.  We look for clues by using a standard set of regular expressions to grep the logs with which we’re familiar.  Or we open an fsdb and check the status of our favorite signals.  At an abstract level, we are trying to detect a nugget of data that we can use to decide which node to traverse to next.  We are mentally populating a node in our decision tree.  Every node of every decision tree can be described like this:<br>
 ![alt_text](documentation/ascii_art/detect_decide_node.png)
-```
-+--------+--------+
-|        |        |
-| Detect | Decide |
-|        |        |
-+--------+--------+
-```
-Once we detect a nugget of data that looks promising, we decide where to look next then repeat the process as long as it bears fruit.  If we reach a dead end, we return to the previous node, decide differently, go detect again and repeat.  Eventually a debug flow looks something like this:
-```
-+--------+--------+       +--------+--------+       +--------+--------+
-|        |        |       |        |        |       |        |        |
-| Detect | Decide +-------> Detect | Decide +-------> Detect | Decide |
-|        |        |       |        |        |       |        |        |
-+--------+-----+--+       +--------+--------+       +--------+--------+
-               |
-               |
-               |    +--------+--------+        +--------+--------+
-               |    |        |        |        |        |        |
-               +----> Detect | Decide +--------> Detect | Decide |
-                    |        |        |        |        |        |
-                    +-----+--+--------+        +--------+--------+
-                          |           |
-                          |           |
-                          |           |        +--------+--------+
-                          |           +-------->        |        |
-                       +--v-----+--------+     | Detect | Decide |
-                       |        |        |     |        |        |
-                       | Detect | Decide |     +--------+--------+
-                       |        |        |
-                       +--------+--------+
-```
+
+Once we detect a nugget of data that looks promising, we decide where to look next then repeat the process as long as it bears fruit.  If we reach a dead end, we return to the previous node, decide differently, go detect again and repeat.  Eventually a debug flow looks something like this:<br>
+![alt_text](documentation/ascii_art/detect_decide_tree.png)
+
 This tree represents the hard fought knowledge that represents hours or occasionally days of intense focus and consultation with other engineers to connect the dots.  Represented in this way, the two components of debug knowledge are easy to identify:
 
   - Identifying relevant data (‘detect’) from many MBs of data in a run directory
@@ -268,38 +241,9 @@ The following example includes:
 
 Block diagram
 -------------
-Decision tree block diagram that might be created on a whiteboard during a debug interview session when a car won't start.
+Decision tree block diagram that might be created on a whiteboard during a debug interview session when a car won't start.<br>
+![alt_text](documentation/ascii_art/car_wont_start_example.png)
 
-```
-                           +-------------------+       +---------------+
-                           |                   |       |               |
-                 +---------> engine turns over +-------> car needs gas |
-+----------------+         |                   |       |               |
-|                |         +-----------------+-+       +---------------+
-| car wont start |                           | |
-|                |                           | |
-+----------------+   +-------------+         | |       +-----------------+        +--------------------+      +----------------+
-                 |   |             |         | |       |                 |        |                    |      |                |
-                 |   | engine does |         | +-------> battery voltage |        | voltage to starter |      | starter passes |
-                 +--->   nothing   |         |         |   meets spec    +-------->     meets spec     +------>  diagnostics   |
-                     |             |         |         |                 |        |                    |      |                |
-                     ++-+----------+         |         +-----------------+        +--------------------+      +----------------+
-                      | |                    |
-                      | |                    |
-                      | | +----------------+ |        +---------------+
-                      | | |                | |        |               |
-                      | | | battery is not | +--------> battery needs |
-                      | +->   connected    |          |   charging    |
-                      |   |                |          |               |
-                      |   +----------------+          +---------------+
-                      |
-                      |       +------------+          +-----------------+       +---------------------+
-                      |       |            |          |                 |       |                     |
-                      |       | battery is |          | battery voltage |       | battery connections |
-                      +-------> connected  +---------->   meets spec    +------->      are good       |
-                              |            |          |                 |       |                     |
-                              +------------+          +-----------------+       +---------------------+
-```
 CSV file
 ---------
 Here is shown the CSV representation of the block diagram shown above.  This content is copied from the ThenWhatTree/examples/car_wont_start/car_wont_start.csv file.
