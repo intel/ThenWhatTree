@@ -54,7 +54,7 @@ ThenWhatTree contains utilities for generating and analyzing decision tree colla
 
 Background and motivation  
 --------------------
-Hardware design verification engineers are often required to move to different parts of the design to assist other teams.  Learning to debug by ramping on new design collateral and microarchitectural (uAV) flows is difficult when documentation is stale or missing and most of the uAV knowledge is tribal, passed only by word of mouth or by painstakingly tracing signals.  Much effort is wasted relearning what others have learned but could not teach.
+Hardware design verification engineers are often required to move to different parts of the design to assist other teams.  Learning to debug by ramping on new design collateral and microarchitectural flows is difficult when documentation is stale or missing and most of the knowledge is tribal, passed only by word of mouth or by painstakingly tracing signals.  Much effort is wasted relearning what others have learned but could not teach.
 
 My frequent experience in the ramp process allowed me to study the debug process in many different contexts and notice the behavior patterns that were common to them all.  ThenWhatTree is a methodology that simplifies the process of recording debug knowledge and generating a code base that allows for automated execution of debug knowledge.  
 
