@@ -64,10 +64,10 @@ ThenWhatTree methodology
 ---------------------------
 ThenWhatTree relies on the insight that debug is an algorithmic activity that can be represented in a decision tree.  There is no magic to debug.  Recognized debug experts have merely collected more algorithms in their heads, know how to judiciously apply those algorithms and where to find the data required to feed those algorithms.  This is hard fought knowledge that is difficult to share, poorly preserved and typically unavailable to others outside the virtual or physical presence of the debug expert.  ThenWhatTree is an expert replication methodology.
 
-Starting a fresh debug session is often a fishing expedition.  Sometimes the output from a failing checker or assertion gives a hint.  For a cycle limit violation or hanging test, we usually are starting from a blank slate.  We look for clues by using a standard set of regular expressions to grep the logs with which we’re familiar.  Or we open an fsdb and check the status of our favorite signals.  At an abstract level, we are trying to detect a nugget of data that we can use to decide which node to traverse to next.  We are mentally populating a node in our decision tree.  Every node of every decision tree can be described like this:<br>
+Starting a fresh debug session is often a fishing expedition.  Sometimes the output from a failing checker or assertion gives a hint.  For a cycle limit violation or hanging test, we usually are starting from a blank slate.  We look for clues by using a standard set of regular expressions to grep the logs with which we’re familiar.  Or we open an fsdb and check the status of our favorite signals.  At an abstract level, we are trying to detect a nugget of data that we can use to decide which node to traverse to next.  We are mentally populating a node in our decision tree.  Every node of every decision tree can be described like this:<br><br>
 ![alt_text](documentation/ascii_art/detect_decide_node.png)
 
-Once we detect a nugget of data that looks promising, we decide where to look next then repeat the process as long as it bears fruit.  If we reach a dead end, we return to the previous node, decide differently, go detect again and repeat.  Eventually a debug flow looks something like this:<br>
+Once we detect a nugget of data that looks promising, we decide where to look next then repeat the process as long as it bears fruit.  If we reach a dead end, we return to the previous node, decide differently, go detect again and repeat.  Eventually a debug flow looks something like this:<br><br>
 ![alt_text](documentation/ascii_art/detect_decide_tree.png)
 
 This tree represents the hard fought knowledge that represents hours or occasionally days of intense focus and consultation with other engineers to connect the dots.  Represented in this way, the two components of debug knowledge are easy to identify:
@@ -241,7 +241,7 @@ The following example includes:
 
 Block diagram
 -------------
-Decision tree block diagram that might be created on a whiteboard during a debug interview session when a car won't start.<br>
+Decision tree block diagram that might be created on a whiteboard during a debug interview session when a car won't start.<br><br>
 ![alt_text](documentation/ascii_art/car_wont_start_example.png)
 
 CSV file
